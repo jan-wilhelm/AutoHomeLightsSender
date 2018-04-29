@@ -21,13 +21,14 @@ public class RequestHandler {
 			final String line = in.readLine();
 			System.out.println("Got " + line);
 			
+			// Build the process
 			ProcessBuilder ps = new ProcessBuilder(line.split(" "));
 
 			// From the DOC: Initially, this property is false, meaning that the
 			// standard output and error output of a subprocess are sent to two
 			// separate streams
 			ps.redirectErrorStream(true);
-
+			
 			Process pr = ps.start();
 
 			BufferedReader processIn = new BufferedReader(new InputStreamReader(pr.getInputStream()));
